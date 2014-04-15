@@ -4,8 +4,8 @@ What is Huginn? - https://github.com/cantino/huginn
 
 ## Usage
 
-    sudo docker build -t jabbslad/huggin .
-    sudo docker run -p 3000:3000 jabbslad/huggin
+    sudo docker build -t jabbslad/huginn .
+    sudo docker run -p 3000:3000 jabbslad/huginn
 
 ## Todo
 
