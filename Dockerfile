@@ -6,18 +6,17 @@ FROM ubuntu:12.04
 
 MAINTAINER Jamie Atkinson "jabbslad@gmail.com"
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN apt-get update
+
+RUN apt-get install -y build-essential curl zlib1g-dev libreadline-dev libssl-dev libcurl4-openssl-dev git libmysqlclient-dev mysql-server
 
 ENV HOME /root
 ENV RBENV_ROOT $HOME/.rbenv
-ENV RUBY_VERSION 1.9.3-p545
-ENV RUBYGEMS_VERSION 2.2.2
+ENV RUBY_VERSION 2.1.2
+ENV RUBYGEMS_VERSION 2.4.1
 
 # manually setup environment
 ENV PATH $HOME/.rbenv/shims:$HOME/.rbenv/bin:$RBENV_ROOT/versions/$RUBY_VERSION/bin:$PATH
-
-RUN apt-get install -y build-essential curl zlib1g-dev libreadline-dev libssl-dev libcurl4-openssl-dev git libmysqlclient-dev mysql-server
 
 RUN git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 RUN git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
